@@ -1,0 +1,95 @@
+{
+  "name": "nuocgiaikhat",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/nuocgiaikhat/src",
+  "prefix": "nuocgiaikhat",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/nuocgiaikhat",
+        "index": "apps/nuocgiaikhat/src/index.html",
+        "main": "apps/nuocgiaikhat/src/main.ts",
+        "polyfills": "apps/nuocgiaikhat/src/polyfills.ts",
+        "tsConfig": "apps/nuocgiaikhat/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/nuocgiaikhat/src/favicon.ico",
+          "apps/nuocgiaikhat/src/assets"
+        ],
+        "styles": ["apps/nuocgiaikhat/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/nuocgiaikhat/src/environments/environment.ts",
+              "with": "apps/nuocgiaikhat/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "nuocgiaikhat:build:production"
+        },
+        "development": {
+          "browserTarget": "nuocgiaikhat:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "nuocgiaikhat:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/nuocgiaikhat/**/*.ts",
+          "apps/nuocgiaikhat/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/nuocgiaikhat/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
