@@ -1,0 +1,14 @@
+.wrapper{
+    max-width: 1920x;
+
+    &ul{
+        max-width: 1480px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+    
+}
+.font{
+    font-size: 'Montserrat';
+}
+.swal2-title .swal2-html-container{margin: 0;}

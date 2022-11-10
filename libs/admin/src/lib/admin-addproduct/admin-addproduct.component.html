@@ -1,0 +1,142 @@
+<div class="container">
+  
+    <section class="panel panel-default">
+  <div class="panel-heading"> 
+  <h3 class="panel-title">Tạo sản phẩm</h3> 
+  </div> 
+  <div class="panel-body">
+    
+  <form action="designer-finish.html" class="form-horizontal" role="form" [formGroup]="form" (ngSubmit)="OnSubmit()">
+   <!-- form-group // -->
+  
+     <div class="form-group">
+      <label for="name" class="col-sm-3 control-label">Tên sản phẩm</label>
+      <div class="col-sm-12">
+        <input type="text" class="form-control" 
+        placeholder="Tên sản phẩm" 
+        [(ngModel)]="listadd.name"
+        formControlName="nameproduct"
+        [ngClass]="{ 'is-invalid': submitted && f['nameproduct'].errors }">
+        <div *ngIf="submitted && f['nameproduct'].errors" class="invalid-feedback">
+          <div *ngIf="f['nameproduct'].errors['required']">Vui lòng nhập tên sản phẩm</div>
+          <div *ngIf="f['nameproduct'].errors['minlength']">
+            Tên sản phẩn ít nhất là 6 kí tự
+          </div>
+  
+        </div>
+      </div>
+    </div> <!-- form-group // -->
+    <div class="form-group link-img">
+      <label for="name" class="col-sm-3 control-label">Link ảnh sản phẩm</label>
+      <ngx-dropzone (change)="onSelect($event)">
+        <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of file" [removable]="true" (removed)="onRemove(f)" [file]="f">
+        </ngx-dropzone-image-preview>
+      </ngx-dropzone>
+
+    </div>
+
+    <div class="form-group">
+        <div class="row ">
+            <div class="col-sm-6">
+                <label for="qty" class="col-sm-6 control-label">Giá sản phẩm</label>
+                <div class="col-sm-12">
+                    <input type="text" 
+                    class="form-control" 
+                    currencyMask 
+                    [formControl]="formControlExample"
+                    [(ngModel)]="listadd.priceold" 
+
+                     formControlName="priceold"
+                     [ngClass]="{ 'is-invalid': submitted && f['priceold'].errors }">
+                     <div *ngIf="submitted && f['priceold'].errors" class="invalid-feedback">
+                        <div *ngIf="f['priceold'].errors['required']">Vui lòng nhập giá sản phẩm</div>
+                        <div *ngIf="f['priceold'].errors['pattern']">Giá tiền phải là số 0-9 
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label class="col-sm-6 control-label">Giảm giá(%)</label>
+                <div class="col-sm-12"> 
+                  <input type="text" class="form-control" name="date_start" id="date_start" placeholder="50"
+                   [(ngModel)]="listadd.sale"
+                   formControlName="sale"
+                   [ngClass]="{ 'is-invalid': submitted && f['sale'].errors }"/>
+                   <div *ngIf="submitted && f['sale'].errors" class="invalid-feedback">
+                    <div *ngIf="f['sale'].errors['required']">Vui lòng nhập giảm giá</div>
+                    <div *ngIf="f['sale'].errors['pattern']">
+                     Giảm giá là số gồm 1 đến 2 con số
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <div 
+    class="form-group has-feedback " 
+    style="padding:15px"
+    [ngClass]="{ 'has-error': myckeditor.invalid && myckeditor.touched }">
+    <ckeditor [(ngModel)]="listadd.detail" [ngModelOptions]="{standalone: true}"
+          #myckeditor="ngModel"
+          name="myckeditor"
+          required
+          [config]="ckeConfig" 
+          debounce="500" 
+          (paste)="onPaste($event)"
+          (change)="onChange($event)">
+    </ckeditor>
+<!-- <div *ngIf="myckeditor.invalid && myckeditor.touched" class="help-block">Required field.</div> -->
+  </div>
+    <!-- <div class="form-group">
+      <label for="about" class="col-sm-3 control-label">Mô tả sẩn phẩm</label>
+      <div class="col-sm-12">
+        <textarea class="form-control" cols="" rows="10"  [(ngModel)]="listadd.detail"
+        formControlName="detail"
+        [ngClass]="{ 'is-invalid' : submitted && f['detail'].errors   }"></textarea>
+         <div *ngIf="submitted && f['detail'].errors" class="invalid-feedback">
+          <div *ngIf="f['detail'].errors['required']">Vui lòng nhập mô tả sản phẩm</div>
+
+          <div *ngIf="f['detail'].errors['minlength']">
+            Mô tả sản phẩn ít nhất là 6 kí tự
+          </div>
+        </div>
+      </div>
+    </div>  -->
+    <div class="form-group form-check">
+      <input
+        type="checkbox"
+        formControlName="acceptTerms"
+        id="acceptTerms"
+        class="form-check-input"
+        [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+      />
+      <label for="acceptTerms" class="form-check-label"
+        >Xác nhận thay đổi</label
+      >
+      <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">
+        Vui lòng xác nhận 
+      </div>
+    </div>
+
+    <hr>
+    <div class="form-group float-right">
+      <div class="col-sm-offset-3 col-sm-12">
+        <button type="submit" class="btn btn-secondary addbutton"  > <i class="fa-solid fa-arrow-up-from-bracket mr-2"></i> Thêm sản phẩm</button>
+      </div>
+    </div> 
+  </form>
+    
+  </div>
+  </section>
+  
+    
+  </div>
+
+
+     
+
+    
+    
+    
+

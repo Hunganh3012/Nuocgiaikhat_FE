@@ -1,0 +1,130 @@
+<body>
+    <div class="wrapper header-fixed">
+        <div class="header container">
+            <div class="header-menu-bars" (click)="clickToggle()">
+                <i class="fa-solid fa-bars-staggered"></i>
+                <!-- <i class="fa-solid fa-bars"></i> -->
+            </div>
+            <div class="header-toggle " [hidden]="isDisplay">
+                <!-- <div>
+                    <img src="./assets/images/home.png" alt="" class="menu-toggle-icon-home">
+                </div> -->
+                <nav>
+                    <ul class="menu-toggle-list" >
+                        <li class="menu-toggle-item">
+                            <a routerLink="/web/home-page" (click)="open()">giới thiệu</a>
+                        </li>
+                        <!-- <li class="menu-toggle-item">
+                            <a routerLink="/web/product" (click)="open()">Tiêu điểm</a>
+                        </li> -->
+                        <li class="menu-toggle-item">
+                            <a routerLink="/web/product-announ" (click)="open()">Công bố sản phẩm</a>
+                        </li>
+                        <li class="menu-toggle-item">
+                            <a routerLink="/web/product" (click)="open()">Tin tức</a>
+                        </li>
+                        <li class="menu-toggle-item">
+                            <a routerLink="/web/tuyendung" (click)="open()">Tuyển dụng</a>
+                        </li>
+                        <li class="menu-toggle-item">
+                            <a routerLink="/web/contact" (click)="open()">Liên hệ</a>
+                        </li>
+                    </ul>
+                   <div class="menu-toggle-search">
+                    <!-- <img src="./assets/images/" alt=""> -->
+                    <img src="./assets/images/search.png" alt=""  class="menu-toggle-search-circle">
+                    <img src="./assets/images/searchdown.png" alt="" class="menu-toggle-search-down">
+                   </div>
+                    <span class="menu-language">VN <img src="./assets/images/star.png" alt="" class="menu-icon-star"></span>
+                    
+                    <!-- <button (click)="logIn()">Đăng nhâp</button>
+                    <button (click)="logOut()">Đăng xuất</button>
+                    <img src="./assets/images/drop-down.png" alt="" class="menu-icon-dropdown">
+                    <a routerLink="./admin">Quan tri vien</a> -->
+                </nav>
+            </div>
+            <div class="container">
+                <nav class="nav-menu">
+                    
+                    <a routerLink="/web/product-announ" (click)="open()"> <img src="./assets/images/logo-nuocgiaikhatcopy.png" alt="" class="nav-icon-logo"></a>
+                    
+                    <img routerLink="" src="./assets/images/home.png" alt="" class="nav-icon-home">
+                    <ul class="nav-menu-list">  
+                        <li class="nav-menu-item">
+                            <a routerLink="/web/home-page" (click)="open()">giới thiệu</a>
+                        </li>
+                        <!-- <li class="nav-menu-item">
+                            <a routerLink="/web/product" (click)="open()">Tiêu điểm</a>
+                        </li> -->
+                        <li class="nav-menu-item">
+                            <a routerLink="/web/product-announ" (click)="open()" >Công bố sản phẩm</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a routerLink="/web/product" (click)="open()">Tin tức</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a routerLink="/web/tuyendung" (click)="open()">Tuyển dụng</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a routerLink="/web/contact" (click)="open()">Liên hệ</a>
+                        </li>
+                    </ul>
+                    <div class="search">
+                        <input type="text">
+                    <div class="nav-icon-search">
+                       <a href="" style="cursor:pointer;">
+                        <img src="./assets/images/search.png" alt=""  class="nav-icon-search-circle">
+                        <img src="./assets/images/searchdown.png" alt="" class="nav-icon-search-down">
+                       </a>
+                    </div>
+                    </div>
+                    <!-- <span class="nav-language">VN</span>
+                    <img src="./assets/images/star.png" alt="" class="nav-icon-star"> -->
+                    
+                    <a routerLink="/web/cart" class="link-cart" ><i (click)="close()" class="fa-solid fa-cart-shopping cart-icon">
+                        <small class="number-cart ">{{totalItem}}</small>
+                            <div class="dropdown-item" >
+                                <ul class="dropdown__list" > 
+                    
+                                    <li class="dropdown__item" *ngFor="let Detail of  CartDetailheader">
+                                        <div class="cartmini-left">
+                                            <img src="{{Detail.img}}" alt="" class="img-cartmini">
+                                            <span class="name-cartmini">{{Detail.name}}</span>
+                                        </div>
+                                        <span>{{Detail.qtyTotal}}</span>
+                                    <span class="price-cartmini">{{Detail.priceold}}.000đ</span>
+                                    </li>
+                                    
+                                
+                                </ul>
+                                <div class="add-cart-button">
+                                    <!-- <a routerLink="/web/cart" class="">Total :  {{Totals | currency: 'VND':'symbol':'1.2-2'}}0</a> -->
+                                    <!-- <a routerLink="/cart" class="">Thành tiền: {{Total | currency: 'VND':'symbol':'1.2-2'}}0</a> -->
+                                    <a routerLink="/web/cart" > <i class="fa-solid fa-cart-shopping mr-3"></i>Xem giỏ hàng</a>
+                                </div>
+                            </div>
+                    </i></a>
+                    <a class="nav-menu-item users" style="text-decoration:none; cursor:pointer; padding:10px 0px;" *ngIf="isShow" (click)="showdropdownadmin()">
+                        Quan tri vien
+                        <img src="./assets/images/drop-down.png" alt="" class="nav-icon-dropdown">
+                        <div class="user-dropdown" [hidden]="dropdownmo">
+                            <span class="user-dropdown-item"><a routerLink="/admin/" >Tài khoản của tôi</a></span>
+                            <span class="user-dropdown-item"><a routerLink="/web/cart/" (click)="close()" >Giỏ hàng</a></span>
+                            <span class="user-dropdown-item"><a routerLink="/web/wishlist">Sản phẩm yêu thích</a></span>
+                            <span class="user-dropdown-item"><a (click)="logOut()" class="" *ngIf="isShowLogOut">Đăng xuất</a></span>
+                        </div>
+                    </a>
+                    <a >
+
+                        <button (click)="logIn()" class="button-log" *ngIf="isShowLogIn">Đăng nhâp</button> 
+                    </a>
+                    <a routerLink="/dangky">
+
+                        <button (click)="logIn()" class="button-log" *ngIf="isShowLogIn">Đăng ký</button> 
+                    </a>
+                </nav>
+            </div> 
+            <!-- <app-ng-dynamic-breadcrumb class="fontfamily" [bgColor]="' transparent'" [fontSize]="'16px'" [fontColor]="'#0f5089'" [lastLinkColor]="'#000'" [symbol]="'   >   '"></app-ng-dynamic-breadcrumb> -->
+        </div>
+    </div>
+</body>

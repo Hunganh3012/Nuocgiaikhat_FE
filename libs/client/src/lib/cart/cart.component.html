@@ -1,0 +1,111 @@
+
+<section class="h-100 h-custom" style="background-color: #034da2a8 ;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12">
+          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+            <div class="card-body p-0">
+              <div class="row g-0"    >
+                <div class="col-lg-8">
+                  <div class="p-5">
+                    <div class="d-flex justify-content-between align-items-center mb-5">
+                      <h1 class="fw-bold mb-0 text-black">Giỏ hàng</h1>
+                      <!-- <h6 class="mb-0 text-muted"> sản phẩm</h6> -->
+                      <div class="pt-5">
+                        <h6 class="mb-0"><a routerLink="/web/product" class="text-body" (click)="clearCart(getCartDetail)">
+                          Xóa tất cả</a></h6>
+                      </div>
+                    </div>
+                    <hr class="my-4">
+                    
+                    <div class="row mb-4 d-flex justify-content-between align-items-center" *ngFor="let qtyDetail of getCartDetail ; let i = index">
+                      <div class="col-md-2 col-lg-2 col-xl-2">
+                        <img
+                          src="{{qtyDetail.img}}"
+                          class="img-fluid rounded-3" alt="ảnh sản phẩm">
+                      </div>
+                      <div class="col-md-3 col-lg-3 col-xl-3">
+                        <h6 class="text-muted">{{qtyDetail.name}}</h6>
+                        <!-- <h6 class="text-black mb-0">Cotton T-shirt</h6> -->
+                        <h6 class="mt-5 ">
+                            <span>{{qtyDetail.priceold}}.000đ    </span> <span class="ml-2 mr-3"></span><small class="text-danger">-{{qtyDetail.sale}}%</small>
+                        </h6>
+                      </div>
+                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                        <button class="btn btn-link px-2" (click)="decrease(qtyDetail)">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <input style="width:50px"
+                            [(ngModel)]="qtyDetail.qtyTotal"
+                            min="1"
+                            type="number"
+                            name=""
+                            class="form-control"/>
+
+                        <button class="btn btn-link px-2" (click)="increase(qtyDetail)">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                      </div>
+                      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1" >
+                        <!-- {{qtyDetail.priceold - ((qtyDetail.priceold * qtyDetail.sale)/100) | number:'1.0-0'}} -->
+                        <h6 class="mb-0"  >đ{{qtyDetail.priceold}}.00 </h6>
+                      </div>
+                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                        <a class="text-muted" (click)="removeFromCart(qtyDetail.id)"><i class="fas fa-times"></i></a>
+                      </div>
+                      <hr class="my-4">
+                    </div>
+  
+
+  
+                    
+
+                  </div>
+                </div>
+                <div class="col-lg-4 bg-grey">
+                  <div class="p-5">
+                    <h3 class="fw-bold mb-5 mt-2 pt-1">Thanh toán</h3>
+                    <hr class="my-4">
+  
+                    <div class="d-flex justify-content-between mb-4">
+                      <h5 class="text-uppercase">Tổng sản phẩm </h5>
+                      <h5> </h5>
+                    </div>
+                    <h5 class="text-uppercase mb-3">Giao hàng</h5>
+  
+                    <div class="mb-4 pb-2">
+                      <select class="select">
+                        <option value="1">Giao hàng tiêu chuẩn</option>
+                        <option value="2">Giao hàng hỏa tốc( 2 tiếng)</option>
+                        <option value="3">Giao hàng trong ngày</option>
+                      </select>
+                    </div>
+  
+                    <h5 class="text-uppercase mb-3">Mã giảm giá (nếu có)</h5>
+  
+                    <div class="mb-5">
+                      <div class="form-outline">
+                        <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplea2">nhập mã giảm giá</label>
+                      </div>
+                    </div>
+  
+                    <hr class="my-4">
+  
+                    <div class="d-flex justify-content-between mb-5">
+                      <h5 class="text-uppercase">Tổng cộng</h5>
+                      <h5>{{Total | currency: 'VND':'symbol':'1.2-2'}}0</h5>
+                    </div>
+  
+                    <button type="button" class="btn btn-dark btn-block btn-lg "
+                      data-mdb-ripple-color="dark" (click)="successbuy()"><h5>Thanh toán và Mua hàng</h5></button>
+  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

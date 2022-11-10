@@ -1,0 +1,172 @@
+$primary-color: #034DA2;
+$second-color: #111111;
+$third-color: #007F3E;
+@mixin textShadow {
+    text-shadow: rgb(3, 77, 162) 1px 0px 0px, rgb(3, 77, 162) 0.540302px 0.841471px 0px, rgb(3, 77, 162) -0.416147px 0.909297px 0px, rgb(3, 77, 162) -0.989992px 0.14112px 0px, rgb(3, 77, 162) -0.653644px -0.756802px 0px, rgb(3, 77, 162) 0.283662px -0.958924px 0px, rgb(3, 77, 162) 0.96017px -0.279416px 0px;
+            // background-color: #034DA2;
+             color: white;
+}
+@mixin green {
+    &::before{
+        content: '';
+        position: absolute;
+        top: 40%;
+        left: 34%;
+        width: 70px;
+        height: 10px;
+        background-color: #007F3E;
+        transform: skewX(-25deg);
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        top: 40%;
+        right: 34%;
+        width: 70px;
+        height: 10px;
+        background-color: #007F3E;
+        transform: skewX(-25deg);
+    }
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    z-index: 1;
+}
+ul,
+li,
+a{
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    font-size: 1.6rem;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    line-height: 20px;
+}
+.wrapper{
+    max-width: 1920px;
+    z-index: 1;
+}
+.container{
+    
+    max-width: 1380px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.contact{
+    // z-index: 1;
+    background-color: #034da2;
+    background-image: url("../assets/images/background-contact.png");
+    // background-image: url("/assets/images/background-contact.png");
+    &-item{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+
+            &-copyright{
+            // font-family: 'Mark Pro';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 23px;
+            display: flex;
+            align-items: center;
+            
+            text-transform: uppercase;
+            color: #FFFFFF;
+            }
+
+
+
+
+
+        &-list{
+            display: flex;
+            align-items: center;
+        }
+        &-we{
+                        
+            font-family: 'Mark Pro';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 23px;
+            display: flex;
+            align-items: flex-end;
+            text-align: right;
+
+            color: #FFFFFF;
+        }
+    }
+    &-icon{
+        cursor: pointer;
+        display: block;
+        padding: 8px;
+        border: 2px solid #FFFFFF;
+        border-radius: 8px;
+        margin-left: 20px;
+    }
+}
+.footer-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url(../assets/images/background-doitac.png);
+    &-content{
+        margin: 25px 0;
+        // display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #111111;
+    }
+    &-text{
+        display: block;
+        align-items: center;
+    }
+}
+@media screen and (max-width:1023px) {
+    .footer-bottom-content {
+        font-size: 14px;
+        line-height: 25px;
+    }
+    .contact-item-copyright{
+        font-size: 13px;
+    }
+    .contact-item-we{
+        display: none;
+    }
+}
+@media screen and ( max-width:767px) {
+    .contact-item {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        display: block;
+        text-align: center;
+    }
+    .contact-item-copyright{
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .contact-item-list{
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .footer-bottom-content {
+        font-size: 12px;
+        line-height: 25px;
+    }
+}

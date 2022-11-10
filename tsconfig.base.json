@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nuocgiaikhat/admin": ["libs/admin/src/index.ts"],
+      "@nuocgiaikhat/admin-addproduct": ["libs/admin-addproduct/src/index.ts"],
+      "@nuocgiaikhat/client": ["libs/client/src/index.ts"],
+      "@nuocgiaikhat/service": ["libs/service/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

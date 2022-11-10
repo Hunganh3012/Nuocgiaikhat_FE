@@ -1,0 +1,114 @@
+
+    <div class="wrapper">
+        <div class="desc">
+            <div class="desc-text">
+                Trang chủ / <span class="desc-bold">Liên hệ</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contactsupport-desc">
+                    <h1 class="contactsupport-desc-title title-h1">
+                        Cần hỗ trợ  
+                    </h1>
+                    <div class=" contactsupport-desc-detal  detal">
+                        Liên hệ
+                    </div>
+            </div>
+            <div class="contactsupport-box">
+                
+                <div class="contactsupport-box-highlight">
+                    <div class="contactsupport-box-highlight-text">
+                        <img src="./assets/images/contact-biteco.png" alt="" class="contactsupport-box-highlight-img">
+                        <div class="contactsupport-box-support">
+                            <h1 class="contactsupport-box-highlight-desc">Công ty nước giải khát</h1>
+                            <div class="contactsupport-box-support-text">
+                                Trụ sở: <span class="contactsupport-box-support-detail">77 Lê Trung Nghĩa, P.12, TP. Hồ Chí Minh –</span>
+                            </div>
+                            <div class="contactsupport-box-support-text">
+                                Điện thoại: <span class="contactsupport-box-support-detail">1800 1234567</span>
+                            </div>
+                            <div class="contactsupport-box-support-text">
+                                Email: <span class="contactsupport-box-support-detail">contactsupport@ngk.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contactsupport-box-form" [formGroup]="form" (ngSubmit)="OnSubmit()">
+                        <h1 class="contactsupport-box-form-h1">gửi email cho chúng tôi</h1>
+                        <div class="contactsupport-box-form-item">
+                            <div class="contactsupport-box-form-list">
+                                <div class="contactsupport-box-form-detail contactsupport-box-form-detail-namephone">
+                                    <label for="">Họ(Last name) <span style="color: red;">*</span></label>
+                                    <input type="text" class="contactsupport-box-form-input  form-control"
+                                    formControlName="lastname"
+                                    [(ngModel)]="list.lastname" 
+                                     [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }" >
+                                     <div *ngIf="submitted && f['lastname'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['lastname'].errors['required']">Vui lòng nhập Họ và tên lót</div>
+                                         
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="contactsupport-box-form-list">
+                                <div class="contactsupport-box-form-detail ">
+                                    <label for="">Tên(First name) <span style="color: red;">*</span></label>
+                                    <input type="text" class="contactsupport-box-form-input form-control" 
+                                     formControlName="firstname"
+                                    [(ngModel)]="list.firstname" 
+                                     [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }" >
+                                     <div *ngIf="submitted && f['firstname'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['firstname'].errors['required']">Vui lòng nhập tên</div>
+                                         
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="contactsupport-box-form-list">
+                                <div class="contactsupport-box-form-detail contactsupport-box-form-detail-namephone">
+                                    <label for="">Điện thoại(Mobile) <span style="color: red;">*</span></label>
+                                    <input type="text" class="contactsupport-box-form-input form-control"
+                                    formControlName="phonenum"
+                                    [(ngModel)]="list.phone" 
+                                     [ngClass]="{ 'is-invalid': submitted && f['phonenum'].errors }" >
+                                     <div *ngIf="submitted && f['phonenum'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['phonenum'].errors['required']">Vui lòng nhập số điện thoại</div>
+                                        <div *ngIf="f['phonenum'].errors['pattern']">Nhập sai số điện thoại</div>
+                                         
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="contactsupport-box-form-list">
+                                <div class="contactsupport-box-form-detail">
+                                    <label for="">Email <span style="color: red;">*</span></label>
+                                    <input type="text" class="contactsupport-box-form-input form-control" 
+                                    formControlName="email" 
+                                    [(ngModel)]="list.email"
+                                     [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" >
+                                     <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['email'].errors['required']">Vui lòng nhập email </div>
+                                        <div *ngIf="f['email'].errors['email']">Nhập sai email</div>
+                                         
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contactsupport-box-form-list-advise">
+                            <label for="">Nội dung cần tư vấn</label>
+                            <input type="text" class="contactsupport-box-form-input form-control"
+                            formControlName="detail"
+                            [(ngModel)]="list.content"                             
+                            [ngClass]="{ 'is-invalid': submitted && f['detail'].errors }" >
+                            <div *ngIf="submitted && f['detail'].errors" class="invalid-feedback">
+                                <div *ngIf="f['detail'].errors['required']">Vui lòng nội dung</div>
+                                <div *ngIf="f['detail'].errors['minLength']">Nội dung quá ngắn</div>
+                            </div>
+                        </div>
+                        <span class="contactsupport-box-form-add">
+                            Nếu bạn có ý kiến góp ý hoặc yêu cầu cần hỗ trợ từ NGK, 
+                            vui lòng liên lạc ngay với chúng tôi tại đây. 
+                            Chúng tôi sẽ xem xét và phản hồi sớm nhất có thể
+                        </span>
+                        <input type="submit"  class="contactsupport-box-form-button" value="Gửi liên hệ">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

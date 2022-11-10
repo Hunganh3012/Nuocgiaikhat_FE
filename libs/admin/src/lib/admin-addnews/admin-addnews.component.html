@@ -1,0 +1,73 @@
+
+<div class="container">
+  
+    <section class="panel panel-default">
+  <div class="panel-heading"> 
+  <h3 class="panel-title">Thêm mới</h3> 
+  </div> 
+  <div class="panel-body">
+    
+  <form action="designer-finish.html" class="form-horizontal" role="form" [formGroup]="form" (ngSubmit)="OnSubmit()">
+
+    <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">Tiêu đề</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" 
+                placeholder="Tiêu đề" 
+                [(ngModel)]="listadd.name"
+                formControlName="nameproduct"
+                [ngClass]="{ 'is-invalid': submitted && f['nameproduct'].errors }">
+            <div *ngIf="submitted && f['nameproduct'].errors" class="invalid-feedback">
+              <div *ngIf="f['nameproduct'].errors['required']">Vui lòng nhập tiêu đề</div>
+              <div *ngIf="f['nameproduct'].errors['minlength']">Tiêu đề ít nhất là 6 kí tự </div>
+            </div>
+        </div>
+    </div> 
+    <div style="padding: 15px;" class="form-group link-img">
+      <label for="name" class="col-sm-3 control-label">Ảnh nổi bật</label>
+      <ngx-dropzone  (change)="onSelect($event)">
+        <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of file" [removable]="true" (removed)="onRemove(f)" [file]="f">
+        </ngx-dropzone-image-preview>
+      </ngx-dropzone>
+    </div>
+    <div 
+    style="padding: 15px;"
+      class="form-group has-feedback" 
+      [ngClass]="{ 'has-error': myckeditor.invalid && myckeditor.touched }">
+      <label for="name" class="col-sm-3 control-label">Nội dung chi tiết</label>
+      <!-- <ckeditor [editor]="Editor" (ready)="onReady($event)" [(ngModel)]="listadd.detail" ></ckeditor> -->
+	    <ckeditor [(ngModel)]="listadd.detail" [ngModelOptions]="{standalone: true}"
+            #myckeditor="ngModel"
+            name="myckeditor"
+            required
+            [config]="ckeConfig" 
+            debounce="500" 
+            (paste)="onPaste($event)"
+            (change)="onChange($event)">
+	    </ckeditor>
+    </div>
+
+
+    <hr>
+    <div class="form-group float-right">
+      <div class="col-sm-offset-3 col-sm-12">
+        <button type="submit" class="btn btn-secondary addbutton"  > <i class="fa-solid fa-arrow-up-from-bracket mr-2"></i> Thêm sản phẩm</button>
+      </div>
+    </div> 
+  </form>
+    
+  </div>
+  </section>
+  
+    
+</div>
+
+
+
+     
+
+    
+    
+    
+

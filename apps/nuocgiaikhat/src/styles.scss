@@ -1,1 +1,194 @@
 /* You can add global styles to this file, and also import other style files */
+// @import "app/contact/contact.component.scss";
+@import '~@ctrl/ngx-emoji-mart/picker';
+.emoji-mart-preview{
+    height: 60px;
+}
+.emoji-mart-title-label{
+    font-size: 16px;
+}
+.inner p img {
+    width:100%;
+  }
+.ngx-pagination{
+    font-size:22px;
+    margin-top:20px
+}
+$primary-color: #034DA2;
+$second-color: #111111;
+$third-color: #007F3E;
+@mixin textShadow {
+    text-shadow: rgb(3, 77, 162) 1px 0px 0px, rgb(3, 77, 162) 0.540302px 0.841471px 0px, rgb(3, 77, 162) -0.416147px 0.909297px 0px, rgb(3, 77, 162) -0.989992px 0.14112px 0px, rgb(3, 77, 162) -0.653644px -0.756802px 0px, rgb(3, 77, 162) 0.283662px -0.958924px 0px, rgb(3, 77, 162) 0.96017px -0.279416px 0px;
+            // background-color: #034DA2;
+             color: white;
+}
+@mixin green {
+    &::before{
+        content: '';
+        position: absolute;
+        top: 40%;
+        left: 34%;
+        width: 70px;
+        height: 10px;
+        background-color: #007F3E;
+        transform: skewX(-25deg);
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        top: 40%;
+        right: 34%;
+        width: 70px;
+        height: 10px;
+        background-color: #007F3E;
+        transform: skewX(-25deg);
+    }
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    // font-size: 62.5%;
+    z-index: 1;
+}
+ul,
+li,
+a{
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    font-size: 16px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.banner{
+    position: relative;
+}
+.banner .owl-prev,.banner .owl-next{
+    width: 60px;
+    height: 60px;
+    position:absolute;
+    top: 33%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    background-color: #c7c7c8fa !important;
+    border-radius:50% !important;
+}
+.banner .owl-prev{
+    left:14px;
+}
+.banner .owl-next{
+   right:-46px;
+}
+
+
+.banner .owl-prev i,.banner .owl-next i{
+    color: gray;
+    font-size:40px;
+    position: absolute;
+    top: 50%;
+}
+.banner .owl-prev i{
+    transform: translate(-50%, -50%);
+}
+.banner .owl-next i{
+    transform: translate(-50%, -50%);
+}
+
+.carousel__slide{
+    position: relative;
+}
+.carousel__slide .owl-prev,.carousel__slide .owl-next{
+    width: 70px;
+    height: 70px;
+    position:absolute;
+    top: 33%;
+    transform: translate(-50%,100%);
+    overflow: hidden;
+    background-color:rgb(200, 198, 198) !important;
+    border-radius: 50% !important;
+}
+.carousel__slide .owl-prev{
+    left:50px;
+}
+.carousel__slide .owl-next{
+   right:-13px  ;
+}
+
+
+.carousel__slide .owl-prev i,.carousel__slide .owl-next i{
+    font-size:30px;
+    position: absolute;
+    top: 50%;
+}
+.carousel__slide .owl-prev i{
+    transform: translate(-72%, -50%);
+}
+.carousel__slide .owl-next i{
+    transform: translate(-35%, -50%);
+}
+.carousel__slide .owl-dots{
+    position: absolute;
+    bottom: 20px;
+    right:48%;
+}
+.carousel__slide .owl-dot{
+    color:$primary-color;
+}
+.pag-fix .pagination-previous {
+    
+}
+
+
+
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family:"Montserrat", "Helvetica Neue", sans-serif; }
+
+/* Add application styles & imports to this file! */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+@import '~ngx-toastr/toastr';
+
+
+.mt-20{ margin-top: 20px;}
+.mt-40{margin-top: 40px;}
+.w-10{ width: 10%;}
+.w-100{ width: 100%;}
+.drag-icon{
+  background-color: #3f51b5;
+  color: #fff;
+  text-align: center;
+  padding: 8px 15px;
+}
+.drag-icon i{
+  padding-top: 3px;
+}
+.drag-content{
+  padding-left: 10px;
+}
+.delete-icon{
+  color: #3f51b5;
+}
+.delete-icon a{ cursor: pointer;}
+.drag-index{
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px;
+}
+.alert-text{
+  color: #3f51b5;
+  font-weight: 600;
+  font-family: cursive;
+  font-size: 18px;
+  text-align: center;
+}
+

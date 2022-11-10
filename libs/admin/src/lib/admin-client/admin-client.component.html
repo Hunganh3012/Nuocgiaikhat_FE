@@ -1,0 +1,148 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,200;1,400;1,500;1,700&display=swap" rel="stylesheet"><link href="//db.onlinewebfonts.com/c/7200c6dd8ac604abe09f5159e53a40c0?family=Mark+Pro" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+</head>
+<div class="wrapper d-flex" >
+    <div class="wrapper" >
+ 
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar-home">
+         <div class="sidebar-header">
+            <img alt="">
+             <h3>Quản trị viên</h3>
+             <strong>Ad</strong>
+         </div>
+
+         <ul class="list-unstyled components">
+           <li>
+             <a routerLink="/admin/dasboard">
+               <i class="fas fa-home"></i>
+                 Dasboard
+             </a>
+             <a  data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"  (click)="clickToggle()">
+                 <i class="fas fa-copy"></i>
+                 Quản lý chi tiết
+             </a>
+             <ul class=" list-unstyled" [hidden]="isDisplay">
+                 <li>
+                     <a routerLink="/admin/admin-product">Quản lý sản phẩm</a>
+                 </li>
+                 <li>
+                     <a routerLink="/admin/admin-contact">Quản lý yêu cầu khách hàng</a>
+                 </li>
+
+             </ul>
+         </li>
+             <li class="active">
+                 <a  data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"  (click)="clickToggle2()">
+                   <i class="fas fa-briefcase"></i>
+                     Quản lý nhân viên
+                 </a>
+                 <ul class=" list-unstyled" id="homeSubmenu" [hidden]="isDisplay2">
+                     <li>
+                         <a routerLink="/admin">Quản lý tài khoản nhân viên </a>
+                     </li>
+                     <li>
+                         <a routerLink="/admin">Quản lý chấm công</a>
+                     </li>
+
+                 </ul>
+             </li>
+            
+             <li>
+                 <a routerLink="/admin/admin-news">
+                    <i class="fa-solid fa-newspaper"></i>
+                     Quản lý bài viết
+                 </a>
+             </li>
+             <li>
+                 <a href="/admin">
+                    <i class="fa-solid fa-person-rays"></i>
+                     Quản lý tin tuyển dụng
+                 </a>
+             </li>
+             <li>
+                 <a href="/admin">
+                     <i class="fas fa-image"></i>
+                     Hình ảnh phương tiện
+                 </a>
+             </li>
+             <li>
+                 <a href="" >
+                     <i class="fas fa-question"></i>
+                     Câu hỏi thường gặp
+                 </a>
+             </li>
+             <li>
+                 <a href="#">
+                     <i class="fas fa-paper-plane"></i>
+                        Báo lỗi
+                 </a>
+             </li>
+             
+         </ul>
+     </nav>
+
+   </div>
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+ 
+                <div>
+                    <button type="button" id="sidebarCollapse" class="btn button-head">
+                        <i class="fas fa-align-left"></i>
+                        
+                        
+                    </button>
+                    <button class="btn btn button-head d-inline-block  ml-2 " type="button">
+                        <a routerLink="/web/product-announ" >
+                            <i class="fa-solid fa-house"></i>
+                                Trang bán hàng
+                         </a>
+                    </button>
+                </div>
+                <button class="btn btn button-head d-inline-block  ml-auto return" type="button" (click)="backClicked()">
+                    
+                        <i class="fa-solid fa-arrow-left"></i>
+                            quay lại
+                     
+                </button>
+ 
+                
+            </div>
+         </nav>
+         <!-- <router-outlet></router-outlet> -->
+         <router-outlet></router-outlet>
+    </div>
+</div>
+<!-- <app-file-upload></app-file-upload> -->
+
+
+
+
+
+

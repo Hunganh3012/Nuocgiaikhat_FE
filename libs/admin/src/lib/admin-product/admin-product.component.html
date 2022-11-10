@@ -1,0 +1,64 @@
+
+         <div class="p-3 " >
+            <!-- <h1 class="header title admin-highlight">
+                Danh sách quản lý  sản phẩm
+            </h1> -->
+
+            <div class="float-right">
+                <a routerLink="../admin-addproduct" class="addproduct-link float-right">Thêm mới</a>
+                <div class="input-group float-right mt-2" >
+                    <input type="search" class=" form-control  " placeholder="Search" 
+                    aria-label="Search" aria-describedby="search-addon"    [(ngModel)]="fields.name"
+                    (ngModelChange)="updateFilters()"/>
+                    <button type="button" class="btn btn-outline  custombutton">search</button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <div cdkDropList class="example-list mt-20" (cdkDropListDropped)="drop($event)">
+                    <div class="table-wrapper">
+                   
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>*</th>
+                                    <th>*</th>
+                                    <th>Ảnh sản phẩm</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giảm giá (%)</th>
+                                    <th>Giá gốc</th>
+                                    <th>Giá khuyến mãi</th>
+                                    <th>Admin</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor=" let i = index;let item of listproductAdmin " cdkDrag>
+                                <tr ng-app="">
+                                    <td>{{i+1}}</td>
+                                    <td>
+                                        <div class="w-100 drag-icon">
+                                            <i *ngIf="!item.isDisable" class="material-icons disable">reorder</i>
+                                            <i class="material-icons" cdkDragHandle>reorder</i>
+                                          </div>
+                                    </td>
+                                    <td class="drag-content"><mat-checkbox (change)="item.isDisable = !item.isDisable"></mat-checkbox>  </td>
+                                    <td><img src="{{item.img}}" alt="" class="anhsanpham"></td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.sale}}</td>
+                                    <td>{{item.priceold}}</td>
+                                    <td>{{item.priceold - ((item.priceold * item.sale)/100) | number:'1.0-0'}}</td>
+                                    <td>
+                                        <button routerLink="../admin-editproduct/{{item.id}}" class="buttonclick"> <i class="fa-solid fa-pen-to-square"></i></button> 
+                                        <button class="buttonclick" (click)="deleteProduct(item.id)"><i class="fa-solid fa-trash-can"></i></button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                        </table>
+                        
+                    </div>
+
+                </div>
+              
+            </div>  
+    
+        </div>
+        

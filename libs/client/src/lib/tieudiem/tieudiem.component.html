@@ -1,0 +1,280 @@
+<section class="home">
+    <div></div>
+      <div class="container">
+          <div class="row  fixmg-top">
+              <div class="col-md-8 col-sm-12 col-xs-12">
+                  <div id="demo" class="carousel__slide" >
+          
+                      <!-- Indicators -->
+                      
+                      <owl-carousel-o [options]="customOptions">
+                              
+                          
+                          <ng-template carouselSlide *ngFor="let newsHL of listNewsSlide">
+                              <ngx-skeleton-loader count="1" appearance="circle"[theme]="{ 
+                                  'border-radius': '5px',
+                                  height: '550px',
+                                  width:'890px',
+                                  border: '1px solid white'
+                                  
+                                }" *ngIf="loader"></ngx-skeleton-loader> 
+                              <div *ngIf="!loader" class="item" >
+                                  <article class="featured">
+                                      <div class="overlay"></div>
+                                      <figure>
+                                          <img src="{{newsHL.image}}" alt="Sample Article">
+                                      </figure>
+                                      <div class="details">
+                                          <h1><a routerLink="/web/news-detail/{{newsHL.id}}" class=" namehidden">{{newsHL.name}}</a></h1>
+                                          <div class="time introhidden">{{newsHL.intro}}</div>
+                                      </div>
+                                  </article>
+                              </div>
+                          </ng-template>  
+  
+                      </owl-carousel-o>
+                  </div>
+                  <div class="row">
+                          <ngx-skeleton-loader count="4" appearance="circle"[theme]="{ 
+                              'border-radius': '5px',
+                              height: '500px',
+                              width:'392px',
+                              border: '1px solid white'
+                              
+                            }" *ngIf="loader"></ngx-skeleton-loader> 
+                      <div class="col-md-6 col-sm-4 col-xs-12"  *ngFor="let newsrow of listNewsSlide">
+                          <article class="article ">
+                              <div *ngIf="!loader" class=" inner">
+                                  <figure>
+                                      <a routerLink="/web/news-detail/{{newsrow.id}}">
+                                          <img src="{{newsrow.image}}" alt="Sample Article">
+                                      </a>
+                                  </figure>
+                                  <div class="padding">
+                                      <div class="detail">
+                                          <div class="time">{{newsrow.time}}</div>
+                                      </div>
+                                      <h2 class="namehidden"><a routerLink="/web/news-detail/{{newsrow.id}}">{{newsrow.name}}</a></h2>
+                                      <p class="introhidden" [innerHTML]="newsrow.detail"></p>
+                                      <footer>
+                                          <a class="btn btn-primary  " routerLink="/web/news-detail/{{newsrow.id}}">
+                                                  <div>Xem thêm</div>
+                                          </a>
+                                      </footer>
+                                  </div>
+                              </div>
+                          </article>
+                      </div>
+                  </div>
+                  
+                  <div class="line transparent little"></div>
+   
+                  
+              </div>
+              <div class="col-xs-6 col-md-4 sidebar" id="sidebar">
+                  <div class="sidebar-title for-tablet">Sidebar</div>
+                  <aside>
+                      <h1 class="aside-title">Tin phổ biến </h1>
+                      <div class="aside-body">
+                     
+                              <ngx-skeleton-loader count="4" appearance="circle"[theme]="{ 
+                                  'border-radius': '5px',
+                                  height: '60px',
+                                  width:'430px',
+                                  border: '1px solid white'
+                                  
+                                }" *ngIf="loader"></ngx-skeleton-loader> 
+                          <article class="article-mini" *ngFor="let newsfm of listNewsSlide">
+                              <div  class="inner" *ngIf="!loader">
+                                  <figure>
+                                      <a routerLink="/web/news-detail/{{newsfm.id}}">
+                                          <img src="{{newsfm.image}}" alt="Sample Article">
+                                      </a>
+                                  </figure>
+                                  <div class="padding">
+                                      <h1><a routerLink="/web/news-detail/{{newsfm.id}}">
+                                          {{newsfm.name}}</a></h1>
+                                  </div>
+                              </div>
+                          </article>
+  
+                      </div>
+                  </aside>
+  
+                  <aside>
+                      
+                      <ul class="nav nav-tabs nav-justified" role="tablist" >
+                          <li class="active">
+                              <a class="text-uppercase" href="#recomended" aria-controls="comments" role="tab" data-toggle="tab">
+                                  <i class="ion-android-star-outline "></i> Giới thiệu
+                              </a>
+                          </li>
+                          <!-- <li>
+                              <a href="#comments" class="text-uppercase" aria-controls="comments" role="tab" data-toggle="tab">
+                                  <i class="ion-ios-chatboxes-outline"></i> Comments
+                              </a>
+                          </li> -->
+                      </ul>
+                      <ngx-skeleton-loader count="1" appearance="circle"[theme]="{ 
+                          'border-radius': '5px',
+                          height: '750px',
+                          width:'391px',
+                          border: '1px solid white'
+                          
+                        }" *ngIf="loader"></ngx-skeleton-loader> 
+                      <div class="tab-content" *ngIf="!loader">
+                          <div class="tab-pane active" id="recomended">
+                              <article class="article-fw">
+                                  <div class="inner">
+                                      <figure>
+                                          <a routerLink="/web/product">
+                                            <iframe width="389" height="179" src="https://www.youtube.com/embed/9GEpZpBkzpI" title="Know Your Beers In 3 Minutes - Newsy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                           </a>
+                                      </figure>
+                                      <div class="details">
+                                          <div class="detail">
+                                              <div class="time">December 31, 2016</div>
+                                              <!-- <div class="category"><a href="category.html"></a></div> -->
+                                          </div>
+                                          <h1><a href="">Quy trình sản xuất bia</a></h1>
+                                          <p>
+                                              Donec congue turpis vitae mauris condimentum luctus. Ut dictum neque at egestas convallis. 
+                                          </p>
+                                      </div>
+                                  </div>
+                              </article>
+                              <div class="line"></div>
+                              <article class="article-mini" *ngFor="let item3 of listNews3item ">
+                                  <div class="inner">
+                                      <figure>
+                                          <a routerLink="/web/news-detail/{{item3.id}}">
+                                              <img src="{{item3.image}}" alt="Sample Article">
+                                          </a>
+                                      </figure>
+                                      <div class="padding">
+                                          <h1><a routerLink="/web/news-detail/{{item3.id}}">{{item3.name}}</a></h1>
+                                          <div class="detail">
+                                             
+                                              <div class="time">{{item3.time}}</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </article>
+  
+                          </div>
+                          
+                      </div>
+                  </aside>
+  
+              </div>
+          </div>
+      </div>
+  </section>
+      <section class="category">
+          <div class="container">
+              
+            <div class="row">
+              <div class="col-md-8 text-left">
+                <div class="row">
+                  <div class="line">
+                      <div class="text-uppercase">Tin mới nhất</div>
+                  </div>
+                </div>
+                <ngx-skeleton-loader count="4" appearance="circle"[theme]="{ 
+                  'border-radius': '5px',
+                  height: '206px',
+                  width:'813px',
+                  border: '1px solid white'
+                }" *ngIf="loader"></ngx-skeleton-loader> 
+                <div class="row" *ngFor="let news of listNews | paginate: { itemsPerPage: 4, currentPage: page,totalItems:totalLengths }">
+                  <article *ngIf="!loader" class="col-md-12 article-list mb-2">
+                    <div class="inner">
+                      <figure>
+                          <a routerLink="/web/news-detail/{{news.id}}">
+                            <img src="{{news.image}}">
+                        </a>
+                      </figure>
+                      <div class="details">
+                        <div class="detail">
+                          
+                          <div class="time">{{news.time}}</div>
+                        </div>
+                        <h1 class="namehidden"><a routerLink="/web/news-detail/{{news.id}}"> {{news.name}}</a></h1>
+                        <p class="introhidden" [innerHTML]="news.detail">
+                        </p>
+                        <footer>
+                          <a class="btn btn-primary Xem thêm" routerLink="/web/news-detail/{{news.id}}">
+                            <div>Xem thêm</div>
+                             
+                          </a>
+                        </footer>
+                      </div>
+                    </div>
+                  </article>
+                  
+                  
+                </div>
+                <div class="container pag-fix">
+                  <pagination-controls 
+  
+                  (pageChange)="page = $event"
+                  style="text-align:center"
+                  [previousLabel]="labels.previousLabel"
+                  [nextLabel]="labels.nextLabel"
+                  ></pagination-controls>
+                  </div>
+              </div>
+              <div class="col-md-4 sidebar">
+                <aside>
+                  <h1 class="aside-title">Đăng gần đây</h1>
+                  <ngx-skeleton-loader count="1" appearance="circle"[theme]="{ 
+                      'border-radius': '5px',
+                      height: '732px',
+                      width:'392px',
+                      border: '1px solid white'
+                    }" *ngIf="loader"></ngx-skeleton-loader> 
+                  <div *ngIf="!loader"class="aside-body">
+                    <article class="article-fw">
+                      <div class="inner">
+                        <figure>
+                            <a routerLink="/web/news-detail/{{listrecent.id}}">
+                              <img src="{{listrecent.image}}">
+                            </a>
+                        </figure>
+                        <div class="details">
+                          <h1><a  routerLink="/web/news-detail/{{listrecent.id}}">{{listrecent.name}}</a></h1>
+                        
+                            <div class=" fixxuongdong"[innerHTML]="listrecent.detail"></div>
+                           
+                          
+                          <div class="detail">
+                            <div class="time">{{listrecent.time}}</div>
+                        
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                    <div class="line"></div>
+                    <article class="article-mini" *ngFor="let item3 of listNews3item">
+                      <div class="inner">
+                      <figure>
+                          <a routerLink="/web/news-detail/{{item3.id}}">
+                            <img src="{{item3.image}}">
+                        </a>
+                      </figure>
+                      <div class="padding">
+                        <h1><a routerLink="/web/news-detail/{{item3.id}}">{{item3.name}}</a></h1>
+                        <div class="detail">
+                          <div class="time">{{item3.time}}</div>
+                        </div>
+                      </div>
+                      </div>
+                    </article>
+                  </div>
+                </aside>
+  
+              </div>
+            </div>
+          </div>
+  </section>
+  

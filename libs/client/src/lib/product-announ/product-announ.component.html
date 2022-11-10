@@ -1,0 +1,282 @@
+<div class="font">
+    <div class="container ">
+        <div class="text-center fixmg-top">
+            <h2 class="d-inline-block"><b>Nổi bật</b></h2>		
+            <section class="banner">
+                <owl-carousel-o [options]="customOptions">
+                    
+                    
+                    <ng-template carouselSlide >
+                        <ngx-skeleton-loader count="4" appearance="circle"[theme]="{ 
+                            'border-radius': '5px',
+                            height: '309px',
+                            width:'304px',
+                            border: '1px solid white'
+                          }" *ngIf="loader"></ngx-skeleton-loader>
+                        
+                          
+                          
+                      <!-- Disables the animation -->
+                        <div class="row mb-3"*ngIf="!loader" >  
+                        
+                            <div class="col-sm-3" *ngFor="let hl of listProductHighlight">
+
+                                <!-- Disables the animation, but receiving boolean value from binding -->
+                                <!-- Via binding it can receive `false` (boolean), "false" (string), or any other animation type -->
+                                <!-- Uses `progress` as animation -->
+                                    <div class="product-grid">
+                                    <div class="product-image">
+                                        <a routerLink="../detail/{{hl.id}}"  class="image">
+                                            <img class="pic-1" src="{{hl.img}}">
+                                        </a>
+                                        <span class="product-discount-label">-{{hl.sale}}%</span>
+                                        <ul class="product-links">
+                                            <li><a (click)="addtowlist(hl)"    data-tip="Add to Wishlist"><i class="fas fa-heart" ></i></a></li>
+                                            <!-- <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li> -->
+                                            <li><a routerLink="../detail/{{hl.id}}" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="product-content">
+                                        
+                                        <h3 class="title"><a href="#">{{hl.name}}</a></h3>
+                                        <!-- {{item.priceold - ((item.priceold * item.sale)/100) | number:'1.0-0'}} -->
+                                        <div class="price"> {{hl.priceold}}.000đ</div>
+                                        <a class="add-to-cart" (click)="addtoCart(hl)">Thêm vào giỏ hàng</a>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>			
+
+                        </div>	
+                        
+                    </ng-template> 
+                    <ng-template carouselSlide >
+                        <ngx-skeleton-loader count="4" appearance="circle"[theme]="{ 
+                            'border-radius': '5px',
+                            height: '309px',
+                            width:'304px',
+                            border: '1px solid white'
+                          }" *ngIf="loader"></ngx-skeleton-loader> 
+                        <div class="row mb-3" *ngIf="!loader" >  
+                        
+                            <div class="col-sm-3"  *ngFor="let hl of listProductHighlight">
+                                <div class="product-grid">
+                                    <div class="product-image">
+                                        <a routerLink="../detail/{{hl.id}}"  class="image">
+                                            <img class="pic-1" src="{{hl.img}}">
+                                        </a>
+                                        <span class="product-discount-label">-{{hl.sale}}%</span>
+                                        <ul class="product-links">
+                                            <li><a (click)="addtowlist(hl)"    data-tip="Add to Wishlist"><i class="fas fa-heart" ></i></a></li>
+                                            <!-- <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li> -->
+                                            <li><a routerLink="../detail/{{hl.id}}" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-content">
+                                        <!-- <ul class="rating">
+                                            <li class="fas fa-star"></li>
+                                            <li class="fas fa-star"></li>
+                                            <li class="fas fa-star"></li>
+                                            <li class="far fa-star"></li>
+                                            <li class="far fa-star"></li>
+                                        </ul> -->
+                                        <h3 class="title"><a href="#">{{hl.name}}</a></h3>
+                                        <!-- {{item.priceold - ((item.priceold * item.sale)/100) | number:'1.0-0'}} -->
+                                        <div class="price"> {{hl.priceold}}.000đ</div>
+                                        <a class="add-to-cart"(click)="addtoCart(hl)" >Thêm vào giỏ hàng</a>
+                                    </div>
+                                </div>
+                            </div>			
+
+                        </div>	
+                        
+                    </ng-template>    
+                </owl-carousel-o>
+            </section>
+        </div>	                    
+        
+        
+        <div class="highlight">
+            <p class="highlight-content">Bia, các loại nước giải khát</p>
+        </div>
+        <div class="row">
+            <ngx-skeleton-loader count="8" appearance="circle"[theme]="{ 
+                'border-radius': '5px',
+                height: '435px',
+                width:'330px',
+                border: '1px solid white'
+                
+              }" *ngIf="loader"></ngx-skeleton-loader> 
+            <div class="col-md-3 col-sm-3 col-xs-3 mb-4"  *ngFor="let item of listProduct|  paginate: { itemsPerPage: 12, currentPage: page,totalItems:totalLength }">
+                <div *ngIf="!loader" class="product-grid">
+                    <div class="product-image">
+                        <a routerLink="../detail/{{item.id}}"  class="image">
+                            <img class="pic-1 img-wh" src="{{item.img}}">
+                        </a>
+                        <span class="product-discount-label">-{{item.sale}}%</span>
+                        <ul class="product-links">
+                            <li><a (click)="addtowlist(item)"  data-tip="Add to Wishlist"><i class="fas fa-heart" ></i></a></li>
+                            <!-- <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li> -->
+                            <li><a routerLink="../detail/{{item.id}}" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="product-content">
+                        
+                        <!-- <ul class="rating">
+                            <li class="fas fa-star"></li>
+                            <li class="fas fa-star"></li>
+                            <li class="fas fa-star"></li>
+                            <li class="far fa-star"></li>
+                            <li class="far fa-star"></li>
+                        </ul> -->
+                        <h3 class="title tilte-name"><a href="#">{{item.name}}</a></h3>
+                        
+                        <!-- {{item.priceold - ((item.priceold * item.sale)/100) | number:'1.0-0'}} -->
+                        <div class="price"> {{item.priceold}}.000đ</div>
+                        
+                        <a class="add-to-cart" (click)="addtoCart(item)">Thêm vào giỏ hàng</a>
+                    </div>
+                </div>
+                <!-- <div class="col-md-3 col-lg-3 col-xl-2 d-flex add-to-qty "  >
+                    <button class="btn btn-link px-2" (click)="Desc(item)" >
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <input style="width:60px"
+                        [(ngModel)]="item.qtyTotal"
+                        [ngModelOptions]="{ standalone: true }"
+                        min="1"
+                        type="number"
+                        value="{{item.qtyTotal}}"
+                        name=""
+                        class="form-control"/>
+
+                    <button class="btn btn-link px-2" (click)="Insc(item)">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                </div> -->
+            </div>
+
+        </div>
+    
+        <div class="container pag-fix">
+            <pagination-controls 
+
+            (pageChange)="page = $event"
+            style="text-align:center"
+            [previousLabel]="labels.previousLabel"
+            [nextLabel]="labels.nextLabel"
+            ></pagination-controls>
+        </div>
+        <div class="logo-mess"(click)=" clickToggle()">
+            <img  src="./assets/images/logomess.png" alt="">
+
+        </div>
+        <div class="page-content page-container" id="page-content" [hidden]="isDisplay">
+            <div class="padding">
+                <div class="row container d-flex ">
+                    <div class="col-md-3 col-sm-6 box-chat">
+                        <div class="card card-bordered">
+                        <div class="card-header">
+                            
+                            <h4 class="card-title">
+                                 <a  class="mr-2" href="https://www.facebook.com/www.hunganh/">
+                                    <img class="avatar" src="https://scontent.fsgn8-2.fna.fbcdn.net/v/t1.6435-1/119642114_652938802280645_1717374301829635989_n.jpg?stp=dst-jpg_s480x480&_nc_cat=111&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=-qDMpxtT9IAAX8wIR6p&_nc_ht=scontent.fsgn8-2.fna&oh=00_AT8KR18Lc66zJDQIAxa0yNfJjVcB9K6RV3ArnabA_-NCaw&oe=636A44B3" alt="...">
+                                </a>
+                                <strong>Chat với admin Hùng Anh</strong>
+                            </h4>
+                            <a class=" exit-icon" (click)=" clickToggle()" data-abc="true"><i class="fa-solid fa-xmark"></i></a>
+                        </div>
+            
+            
+                        <div class="chats-content ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height:400px !important;">
+                                 <div class="media media-chat">
+                                
+                                <div class="message from">
+                                    <p>Hi</p>
+                                    <p>Dạo này công việc sao rồi</p>
+                                    <p>Tối mai rãnh không<br>Tụi mình đi bar </p>
+                            
+                                </div>
+                            </div> 
+                            <ng-container  *ngFor="let message of messages">
+                                
+                                
+                                <div class="message"
+                                  [ngClass]="{ 'from': message.author === 'bot',
+                                  'to': message.author === 'user' }">
+                                  
+                                  {{ message.content }}
+                                </div>
+                                
+                              </ng-container>
+                             
+            
+                            <!-- <div class="media media-meta-day">Hôm nay</div>
+            
+                            <div class="media media-chat media-chat-reverse">
+                                <div class="media-body">
+                                    <p>Oki, v tối nay đi</p>
+                                    <p>Có mấy đứa đi</p>
+                                    <p>Lâu rồi không quẩy. Vậy tối mai 7h tối đi </p>
+                                    <p class="meta time"><time datetime="2018">00:06</time></p>
+                                </div>
+                            </div>
+            
+                            <div class="media media-chat">
+                                <a href="https://www.facebook.com/www.hunganh/">
+                                    <img class="avatar" src="https://scontent.fsgn8-2.fna.fbcdn.net/v/t1.6435-1/119642114_652938802280645_1717374301829635989_n.jpg?stp=dst-jpg_s480x480&_nc_cat=111&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=-qDMpxtT9IAAX8wIR6p&_nc_ht=scontent.fsgn8-2.fna&oh=00_AT8KR18Lc66zJDQIAxa0yNfJjVcB9K6RV3ArnabA_-NCaw&oe=636A44B3" alt="...">
+                                </a>
+                                <div class="media-body">
+                                    <p>Okay</p>
+                                    <p>Rồi ngủ đi </p>
+                                    <p class="meta "><time datetime="2018">00:07</time></p>
+                                </div>
+                            </div>   -->
+            
+            
+                            
+            
+
+            
+                        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div></div></div>
+            
+                        <div class="publisher bt-1 border-light">
+                            <img class="avatar avatar-xs" src="https://scontent.fsgn13-4.fna.fbcdn.net/v/t1.30497-1/84628273_176159830277856_972693363922829312_n.jpg?stp=c24.0.80.80a_cp0_dst-jpg_p80x80&_nc_cat=1&ccb=1-7&_nc_sid=12b3be&_nc_ohc=iWJRX8W1jXUAX_cqrVb&_nc_ht=scontent.fsgn13-4.fna&oh=00_AT9Xbv-sQWkYFInJ3eNUY-qvLJC5pijPhnfdD3c19RXsgw&oe=636A8F19" alt="...">
+                            <input id="emoji-mart"name="emoji-mart" [(ngModel)]="value" (keyup.enter)="sendMessage()" class="publisher-input" type="text" placeholder="Nhập tin nhắn...">
+                            <label for="emoji-mart" style="height:30px ;width: 16px;">
+                                <a class="publisher-btn" (click)="toggleEmojiPicker()" href="#" data-abc="true"><i class="fa fa-smile" ></i></a>
+                                <emoji-mart
+                            
+                                [hidden]="isEmoji"
+                                 name="emoji-mart"
+                                id="emoji-mart"
+                                class="emoji-mart "
+                                set="apple"
+                                *ngIf="showEmojiPicker"
+                                (emojiSelect)="addEmoji($event)"
+                                [i18n]="{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }"
+                                [style]="{ position: 'absolute', bottom: '85%', right: '40px' }"
+                                
+                            ></emoji-mart>
+                            </label>
+                            
+                                <label for="file" class="publisher-btn">
+                                    <i class="fa fa-paperclip file-browser">  </i>
+                                </label>
+                                <input class="d-none" type="file" name="file" id="file">
+                           
+                            
+                            <a (click)="sendMessage()" class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a>
+                        </div>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+    </div>
+</div>
