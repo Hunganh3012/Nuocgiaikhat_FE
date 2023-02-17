@@ -21,8 +21,6 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>*</th>
-                                    <th>*</th>
                                     <th>Ảnh sản phẩm</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Giảm giá (%)</th>
@@ -31,16 +29,10 @@
                                     <th>Admin</th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor=" let i = index;let item of listproductAdmin " cdkDrag>
+                            <tbody *ngFor=" let i = index;let item of listproductAdmin | myFilter :filter | paginate: { itemsPerPage: 5, currentPage: page,totalItems:totalLength} " >
                                 <tr ng-app="">
-                                    <td>{{i+1}}</td>
-                                    <td>
-                                        <div class="w-100 drag-icon">
-                                            <i *ngIf="!item.isDisable" class="material-icons disable">reorder</i>
-                                            <i class="material-icons" cdkDragHandle>reorder</i>
-                                          </div>
-                                    </td>
-                                    <td class="drag-content"><mat-checkbox (change)="item.isDisable = !item.isDisable"></mat-checkbox>  </td>
+                                    <td>{{item.id}}</td>
+
                                     <td><img src="{{item.img}}" alt="" class="anhsanpham"></td>
                                     <td>{{item.name}}</td>
                                     <td>{{item.sale}}</td>
@@ -60,5 +52,14 @@
               
             </div>  
     
+        </div>
+        <div class="container pag-fix">
+            <pagination-controls 
+
+            (pageChange)="page = $event"
+            style="text-align:center"
+            [previousLabel]="labels.previousLabel"
+            [nextLabel]="labels.nextLabel"
+            ></pagination-controls>
         </div>
         

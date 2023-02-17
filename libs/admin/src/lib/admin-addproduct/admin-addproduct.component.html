@@ -46,7 +46,14 @@
                     currencyMask 
                     [formControl]="formControlExample"
                     [(ngModel)]="listadd.priceold" 
-
+                    [options]="{
+                      align: 'left',
+                      prefix: '',
+                      thousands: '.',
+                      precision: 0,
+                      decimal: '',
+                      suffix: ' VNĐ'
+                    }"
                      formControlName="priceold"
                      [ngClass]="{ 'is-invalid': submitted && f['priceold'].errors }">
                      <div *ngIf="submitted && f['priceold'].errors" class="invalid-feedback">

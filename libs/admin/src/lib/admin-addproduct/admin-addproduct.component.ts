@@ -28,7 +28,7 @@ export class AdminAddproductComponent implements OnInit {
   rate = 5000;
   lastClick = Date.now() - this.rate;
   formControlExample = new FormControl(20);
-  value=0
+  value="0";
   listadd:any={
     name:'',
     sale:'',

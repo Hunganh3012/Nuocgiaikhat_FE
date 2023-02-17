@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AdminService } from '@nuocgiaikhat/service';
 import { OwlOptions,SlidesOutputData } from 'ngx-owl-carousel-o';
 import { ToastrService } from 'ngx-toastr';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 // import Swal from 'sweetalert2'
 import * as $ from 'jquery';
 // import * as ClassicEditorBuild from "@ckeditor/ckeditor5-build-classic";
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+// import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 type objField = { name: string };
 

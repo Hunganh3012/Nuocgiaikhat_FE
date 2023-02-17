@@ -1,4 +1,4 @@
-/// <reference types="@types/ckeditor" />
+// <reference types="@types/ckeditor" />
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -12,7 +12,7 @@ import {
   Validators
 } from '@angular/forms';
 // import Adapter from '../ckeditorAdaptor';
-// import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import { CloudinaryImage } from '@cloudinary/url-gen';
 import { FileUploadService } from '@nuocgiaikhat/service';
 @Component({
@@ -21,7 +21,7 @@ import { FileUploadService } from '@nuocgiaikhat/service';
   styleUrls: ['./admin-addnews.component.scss']
 })
 export class AdminAddnewsComponent implements OnInit {
-  // public Editor = ClassicEditor;
+
   ckeConfig!: CKEDITOR.config;
   mycontent: string | undefined;
   log: string = '';

@@ -6,8 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FileUploadModule } from "ng2-file-upload"; 
 import {CloudinaryModule} from '@cloudinary/ng';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-import { CurrencyMaskModule } from 'ng2-currency-mask';
-import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CurrencyMaskModule} from 'ng2-currency-mask';
 import { MyFilterPipe } from '../my-filter.pipe';
 import { CKEditorModule } from 'ng2-ckeditor';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -26,15 +26,7 @@ import { AdminEditnewsComponent } from '../admin-editnews/admin-editnews.compone
 import { AdminRoutingModule } from './admin-client-routing.module';
 import { AdminClientComponent } from './admin-client.component';
 
-export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
-  align: 'left',
-  allowNegative: false,
-  decimal: ',',
-  precision: 3,
-  prefix: '',
-  suffix:'',
-  thousands: '.',
-};
+
 @NgModule({
   declarations: [
     AdminClientComponent,
@@ -53,6 +45,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     // WishlistComponent,
   ],
   imports: [
+    DragDropModule,
+    NgxPaginationModule ,
     MatButtonModule,
     MatCheckboxModule ,
     CommonModule,
@@ -65,10 +59,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     // NgxPaginationModule,
     NgxDropzoneModule,
     CurrencyMaskModule,
-    DragDropModule,
+
   ],
-  providers: [
-    { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }
-  ]
+
+
 })
 export class AdminClientModule { }
